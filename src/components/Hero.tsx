@@ -1,0 +1,166 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { ArrowRight, Users, BadgeCheck } from "lucide-react";
+import dynamic from "next/dynamic";
+import TestimonialButton from "./TestimonialButton";
+import { useWaitlistCounter } from "@/hooks/useWaitlistCounter";
+
+// Carga perezosa (lazy load) del fondo 3D para que la página cargue ultra rápido
+const ParticlesBackground = dynamic(() => import("./ParticlesBackground"), {
+  ssr: false, // No cargar en el servidor, solo en el cliente
+});
+
+const ScrambleText = ({ text }: { text: string }) => {
+  const [displayText, setDisplayText] = useState(text);
+  
+  useEffect(() => {
+    let iterations = 0;
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*";
+    const interval = setInterval(() => {
+      setDisplayText((prev) =>
+        text
+          .split("")
+          .map((char, index) => {
+            if (index < iterations) return text[index];
+            if (char === " ") return " ";
+            return chars[Math.floor(Math.random() * chars.length)];
+          })
+          .join("")
+      );
+
+      if (iterations >= text.length) {
+        clearInterval(interval);
+      }
+      iterations += 1;
+    }, 30);
+
+    return () => clearInterval(interval);
+  }, [text]);
+
+  return <>{displayText}</>;
+};
+
+export default function Hero() {
+  const waitlistCount = useWaitlistCounter();
+
+  return (
+    <section className="relative min-h-[100dvh] flex flex-col items-center justify-start md:justify-center overflow-hidden pt-40 md:pt-20 pb-32">
+      <div className="absolute inset-0 z-0 opacity-50">
+        <ParticlesBackground />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-academy-black/80 to-academy-black pointer-events-none"></div>
+      </div>
+      
+      {/* Radial glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[600px] md:h-[600px] bg-ugc-coral/20 rounded-full blur-[120px] z-0 pointer-events-none"></div>
+
+      {/* Content */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center flex flex-col items-center">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-2 px-5 py-2.5 rounded-3xl sm:rounded-full border border-ugc-coral/40 bg-ugc-coral/10 backdrop-blur-md mb-8 shadow-[0_0_15px_rgba(230,57,70,0.2)] max-w-[90vw]"
+        >
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-ugc-coral animate-pulse shrink-0"></div>
+            <span className="text-xs md:text-sm font-medium tracking-widest text-ugc-coral flex items-center gap-1.5">
+              LISTA DE ESPERA VIP ⭐ 
+              <BadgeCheck className="w-3.5 h-3.5 md:w-4 md:h-4 text-white fill-blue-500 shrink-0" />
+            </span>
+          </div>
+          <span className="hidden sm:inline text-ugc-coral opacity-60">·</span>
+          <span className="text-[10px] sm:text-xs md:text-sm font-medium tracking-widest text-ugc-coral opacity-60 text-center">
+            CURSO UGC SIN VISA
+          </span>
+        </motion.div>
+
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-4xl md:text-6xl lg:text-7xl font-black font-display tracking-tighter uppercase leading-[1.1] mb-6"
+        >
+          <ScrambleText text="Convierte tus REELS" />
+          <br />
+          <ScrambleText text="en DÓLARES americanos" />
+          <br />
+          <span className="text-gradient-primary inline-block mt-2">
+            sin salir de Venezuela
+          </span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-lg md:text-xl text-white/70 max-w-3xl mb-12"
+        >
+          Marcas internacionales te pagan por crear contenido UGC desde tu casa. No necesitas visa, no necesitas viajar, no necesitas ser influencer. Solo necesitas saber la fórmula.
+          <br />
+          <strong className="text-white mt-4 inline-block tracking-wide">CERTIFICACIÓN UGC · ACCESO ANTICIPADO · CUPOS LIMITADOS</strong>
+        </motion.p>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className="flex flex-col items-center gap-6"
+        >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={() => {
+                document.getElementById("waitlist-form")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="group relative px-8 py-4 bg-ugc-coral text-white font-bold text-lg rounded-full overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_40px_-10px_#FF5C8A]"
+            >
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+              <span className="relative z-10 flex items-center gap-2">
+                QUIERO MI CUPO
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </span>
+            </button>
+            <TestimonialButton />
+          </div>
+
+          {/* Realtime Counter Mock and Gift Mention */}
+          <div className="flex flex-col items-center gap-3">
+            <div className="flex items-center gap-3 text-white/60">
+              <Users className="w-5 h-5" />
+              <span className="font-medium">Ya somos <strong className="text-white">{waitlistCount}</strong> creadoras esperando</span>
+            </div>
+            
+            <motion.button 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              onClick={() => {
+                document.getElementById("waitlist-form")?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="flex items-center gap-2 text-sm text-[#25D366] bg-[#25D366]/10 px-4 py-2 rounded-full border border-[#25D366]/20 cursor-pointer hover:bg-[#25D366]/20 hover:border-[#25D366]/40 transition-all hover:scale-105"
+            >
+              <span className="text-base">🎁</span>
+              <span>Regalo al asegurar tu cupo: <strong className="font-semibold">Plantilla de pitch para 20 marcas internacionales</strong></span>
+            </motion.button>
+          </div>
+        </motion.div>
+      </div>
+      
+      {/* Scroll indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+      >
+        <span className="text-xs tracking-widest text-white/40 uppercase">Descubre más</span>
+        <div className="w-[1px] h-12 bg-gradient-to-b from-white/40 to-transparent"></div>
+      </motion.div>
+    </section>
+  );
+}

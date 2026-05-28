@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  /* Mantener el negro base de la academia */
+  --color-academy-black: #0A0A0A;
+  --color-academy-dark: #121212;
+
+  /* PALETA UGC SIN VISA - femenina cálida */
+  --color-ugc-coral: #FF5C8A;        /* Primario - antes era academy-red */
+  --color-ugc-coral-light: #FF8FB0;  /* Coral más suave para gradientes */
+  --color-ugc-rose-gold: #E8B4A0;    /* Acento warm */
+  --color-ugc-champagne: #F4E4C1;    /* Highlights dorados - antes era academy-yellow */
+  --color-ugc-lavender: #D4B5E8;     /* Toque femenino sutil */
+
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+@layer base {
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  .noise-bg {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+  
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60;
+  }
+  
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-ugc-coral via-ugc-rose-gold to-ugc-champagne;
+  }
+}
+
