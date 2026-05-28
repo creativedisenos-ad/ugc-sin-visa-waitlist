@@ -121,7 +121,7 @@ export default function WaitlistForm() {
                   >
                     <span className="text-xl">🎁</span>
                     <span className="text-[#25D366] text-sm font-medium">
-                      🎁 Recibe GRATIS el "Tabulador de cuánto cobrar como embajadora de marcas" al completar tu registro
+                      Recibe GRATIS el "Tabulador de cuánto cobrar como embajadora de marcas" al completar tu registro
                     </span>
                   </motion.div>
                 </div>
