@@ -46,7 +46,7 @@ export default function Hero() {
   const waitlistCount = useWaitlistCounter();
 
   return (
-    <section className="relative min-h-[100dvh] flex flex-col items-center justify-start md:justify-center overflow-hidden pt-40 md:pt-20 pb-32">
+    <section className="relative min-h-[100dvh] flex flex-col items-center justify-start md:justify-center overflow-hidden pt-48 md:pt-44 pb-32">
       <div className="absolute inset-0 z-0 opacity-50">
         <ParticlesBackground />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-academy-black/80 to-academy-black pointer-events-none"></div>
