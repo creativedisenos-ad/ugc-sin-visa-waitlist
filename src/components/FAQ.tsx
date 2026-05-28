@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "¿Cuándo es el lanzamiento del curso?",
-    a: "Las inscripciones abren en pocas semanas. Las creadoras de la lista VIP tienen acceso 48 horas antes con precio fundadora del 30% de descuento.",
+    a: "Las inscripciones abren en pocas semanas. Las creadoras de la lista VIP tienen acceso 48 horas antes con precio fundadora del 20% de descuento.",
   },
 ];
 

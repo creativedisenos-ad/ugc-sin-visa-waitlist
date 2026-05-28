@@ -12,7 +12,7 @@ const benefits = [
   },
   {
     icon: <Star className="w-6 h-6 text-white" />,
-    text: "Precio fundadora con 30% de descuento garantizado al abrir cupos",
+    text: "Precio fundadora con 20% de descuento garantizado al abrir cupos",
   },
   {
     icon: <FileText className="w-6 h-6 text-white" />,
