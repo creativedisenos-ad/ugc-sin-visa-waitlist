@@ -121,7 +121,7 @@ export default function WaitlistForm() {
                   >
                     <span className="text-xl">🎁</span>
                     <span className="text-[#25D366] text-sm font-medium">
-                      🎁 Recibe GRATIS la "Plantilla de Pitch para 20 marcas internacionales" al completar tu registro
+                      🎁 Recibe GRATIS el "Tabulador de cuánto cobrar como embajadora de marcas" al completar tu registro
                     </span>
                   </motion.div>
                 </div>
@@ -259,15 +259,14 @@ export default function WaitlistForm() {
                   
                   <div className="flex flex-col gap-3">
                     <a 
-                      // TODO: Reemplazar con URL real del PDF de plantilla de pitch
-                      href="https://drive.google.com/file/d/1B6ivPGDYmBSgDaFpvX8FuplmBaBXV_sE/view?usp=sharing"
+                      href="https://docs.google.com/spreadsheets/d/13K8A44pbmYWltWQDr_pCAylhJaHVo2Y96XMbrWEFRlw/edit?usp=sharing"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full py-4 px-4 bg-[#25D366] hover:bg-[#20bd5a] text-black rounded-xl font-bold transition-all flex flex-col items-center justify-center gap-1 shadow-[0_0_20px_rgba(37,211,102,0.2)] text-center hover:scale-[1.02]"
                     >
                       <span className="flex flex-col sm:flex-row items-center gap-2 text-base md:text-lg">
                         <span className="text-xl">🎁</span> 
-                        <span>Descargar Plantilla de Pitch para 20 marcas</span>
+                        <span>Descargar Tabulador de Cobro UGC</span>
                       </span>
                       <span className="text-sm opacity-80 font-medium">
                         Una antesala de lo que viene en el curso completo

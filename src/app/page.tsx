@@ -18,7 +18,7 @@ export default function Home() {
       <MarqueeBanner />
 
       {/* Header */}
-      <header className="absolute top-8 left-0 right-0 z-50 py-6 px-6 md:px-12 flex justify-between items-center">
+      <header className="absolute top-8 left-0 right-0 z-50 py-6 px-6 md:px-12 flex justify-center items-center">
         <CreativeLogo className="text-white" />
       </header>
 

@@ -7,11 +7,11 @@ import CreativeLogo from "@/components/CreativeLogo";
 export default function Footer() {
   return (
     <footer className="py-12 px-6 border-t border-white/10 relative z-10 bg-black">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div className="max-w-6xl mx-auto flex flex-col items-center gap-8">
         
-        <div className="flex flex-col items-center md:items-start gap-2">
+        <div className="flex flex-col items-center gap-2">
           <CreativeLogo className="text-white h-8" />
-          <p className="text-white/40 text-sm mt-2 text-center md:text-left">
+          <p className="text-white/40 text-sm mt-2 text-center">
             www.creativedisenos.com · @creativedisenos<br />Caracas, Venezuela
           </p>
         </div>

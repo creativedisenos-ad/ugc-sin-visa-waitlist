@@ -86,7 +86,7 @@ export default function Hero() {
         >
           <ScrambleText text="Convierte tus REELS" />
           <br />
-          <ScrambleText text="en DÓLARES americanos" />
+          <ScrambleText text="en DÓLARES" />
           <br />
           <span className="text-gradient-primary inline-block mt-2">
             sin salir de Venezuela
@@ -145,7 +145,7 @@ export default function Hero() {
               className="flex items-center gap-2 text-sm text-[#25D366] bg-[#25D366]/10 px-4 py-2 rounded-full border border-[#25D366]/20 cursor-pointer hover:bg-[#25D366]/20 hover:border-[#25D366]/40 transition-all hover:scale-105"
             >
               <span className="text-base">🎁</span>
-              <span>Regalo al asegurar tu cupo: <strong className="font-semibold">Plantilla de pitch para 20 marcas internacionales</strong></span>
+              <span>Regalo al asegurar tu cupo: <strong className="font-semibold">Tabulador de cuánto cobrar como embajadora de marcas</strong></span>
             </motion.button>
           </div>
         </motion.div>
